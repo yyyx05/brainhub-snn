@@ -1,0 +1,22 @@
+{
+  "schema": "fixed_shell_expected_clients_v1",
+  "clients": {
+    "fc": [
+      "unified_fc_h40_w0_cache_refill_scheduler_v1",
+      "unified_fc_srnn_h40_p4_layer_client_v1",
+      "unified_fc_tp_w2_online_learning_path"
+    ],
+    "srnn": [
+      "unified_fc_srnn_h40_p4_layer_client_v1",
+      "unified_srnn_h40_int8_cache_refill_scheduler_v1",
+      "unified_srnn_m2_h40_forward_engine_v1",
+      "unified_srnn_m2_timestep_train_infer_coordinator"
+    ],
+    "scnn": [
+      "unified_scnn_h40_array16_graph_client_v1",
+      "unified_scnn_selected_layers_train_infer_subsystem_v1",
+      "unified_fc_tp_w2_online_learning_path"
+    ]
+  },
+  "always": []
+}

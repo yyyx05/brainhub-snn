@@ -1,0 +1,416 @@
+{
+  "schema_version": 1,
+  "status": "generated",
+  "profile_opcode": "0x20",
+  "header_words_hex": [
+    "55534e31",
+    "00000209"
+  ],
+  "layer_count": 9,
+  "route_count": 8,
+  "descriptors": [
+    {
+      "layer": 0,
+      "type": "CONV",
+      "input_shape": [
+        2,
+        32,
+        32
+      ],
+      "conv_output_shape": [
+        64,
+        32,
+        32
+      ],
+      "pooled_output_shape": [
+        64,
+        32,
+        32
+      ],
+      "pool": "IDENTITY",
+      "value_input_q8_8": true,
+      "unit_spike_features": false,
+      "active_h40_tiles": 2,
+      "logical_output_passes": 1,
+      "words_hex": [
+        "4e4d5232",
+        "000c0302",
+        "00000002",
+        "05bc0800",
+        "00520502",
+        "01402820",
+        "00c40820",
+        "00000000",
+        "00000000",
+        "01000087",
+        "00000001",
+        "55534e31"
+      ]
+    },
+    {
+      "layer": 1,
+      "type": "CONV",
+      "input_shape": [
+        64,
+        32,
+        32
+      ],
+      "conv_output_shape": [
+        128,
+        32,
+        32
+      ],
+      "pooled_output_shape": [
+        128,
+        16,
+        16
+      ],
+      "pool": "MAX2",
+      "value_input_q8_8": false,
+      "unit_spike_features": true,
+      "active_h40_tiles": 4,
+      "logical_output_passes": 1,
+      "words_hex": [
+        "4e4d5232",
+        "000c0302",
+        "00000002",
+        "05bc0800",
+        "00520504",
+        "05440820",
+        "00480820",
+        "00000480",
+        "00010000",
+        "01000087",
+        "00000002",
+        "55534e31"
+      ]
+    },
+    {
+      "layer": 2,
+      "type": "CONV",
+      "input_shape": [
+        128,
+        16,
+        16
+      ],
+      "conv_output_shape": [
+        256,
+        16,
+        16
+      ],
+      "pooled_output_shape": [
+        256,
+        16,
+        16
+      ],
+      "pool": "IDENTITY",
+      "value_input_q8_8": false,
+      "unit_spike_features": true,
+      "active_h40_tiles": 7,
+      "logical_output_passes": 1,
+      "words_hex": [
+        "4e4d5232",
+        "000c0302",
+        "00000002",
+        "05bc0800",
+        "00520507",
+        "05480410",
+        "00100410",
+        "00012480",
+        "00030000",
+        "01000087",
+        "00000003",
+        "55534e31"
+      ]
+    },
+    {
+      "layer": 3,
+      "type": "CONV",
+      "input_shape": [
+        256,
+        16,
+        16
+      ],
+      "conv_output_shape": [
+        256,
+        16,
+        16
+      ],
+      "pooled_output_shape": [
+        256,
+        8,
+        8
+      ],
+      "pool": "MAX2",
+      "value_input_q8_8": false,
+      "unit_spike_features": true,
+      "active_h40_tiles": 7,
+      "logical_output_passes": 1,
+      "words_hex": [
+        "4e4d5232",
+        "000c0302",
+        "00000002",
+        "05bc0800",
+        "00520507",
+        "05500410",
+        "00500410",
+        "0005a480",
+        "00040000",
+        "01000087",
+        "00000004",
+        "55534e31"
+      ]
+    },
+    {
+      "layer": 4,
+      "type": "CONV",
+      "input_shape": [
+        256,
+        8,
+        8
+      ],
+      "conv_output_shape": [
+        512,
+        8,
+        8
+      ],
+      "pooled_output_shape": [
+        512,
+        8,
+        8
+      ],
+      "pool": "IDENTITY",
+      "value_input_q8_8": false,
+      "unit_spike_features": true,
+      "active_h40_tiles": 12,
+      "logical_output_passes": 2,
+      "words_hex": [
+        "4e4d5232",
+        "000c0302",
+        "00000002",
+        "05bc0800",
+        "0052050c",
+        "05500208",
+        "00200208",
+        "000ea480",
+        "00050000",
+        "01000087",
+        "00000005",
+        "55534e31"
+      ]
+    },
+    {
+      "layer": 5,
+      "type": "CONV",
+      "input_shape": [
+        512,
+        8,
+        8
+      ],
+      "conv_output_shape": [
+        512,
+        8,
+        8
+      ],
+      "pooled_output_shape": [
+        512,
+        4,
+        4
+      ],
+      "pool": "MAX2",
+      "value_input_q8_8": false,
+      "unit_spike_features": true,
+      "active_h40_tiles": 12,
+      "logical_output_passes": 2,
+      "words_hex": [
+        "4e4d5232",
+        "000c0302",
+        "00000002",
+        "05bc0800",
+        "0052050c",
+        "05600208",
+        "00600208",
+        "0020a480",
+        "00058000",
+        "01000087",
+        "00000006",
+        "55534e31"
+      ]
+    },
+    {
+      "layer": 6,
+      "type": "CONV",
+      "input_shape": [
+        512,
+        4,
+        4
+      ],
+      "conv_output_shape": [
+        512,
+        4,
+        4
+      ],
+      "pooled_output_shape": [
+        512,
+        4,
+        4
+      ],
+      "pool": "IDENTITY",
+      "value_input_q8_8": false,
+      "unit_spike_features": true,
+      "active_h40_tiles": 12,
+      "logical_output_passes": 2,
+      "words_hex": [
+        "4e4d5232",
+        "000c0302",
+        "00000002",
+        "05bc0800",
+        "0052050c",
+        "05600104",
+        "00200104",
+        "0044a480",
+        "00060000",
+        "01000087",
+        "00000007",
+        "55534e31"
+      ]
+    },
+    {
+      "layer": 7,
+      "type": "CONV",
+      "input_shape": [
+        512,
+        4,
+        4
+      ],
+      "conv_output_shape": [
+        512,
+        4,
+        4
+      ],
+      "pooled_output_shape": [
+        512,
+        2,
+        2
+      ],
+      "pool": "AAVG2",
+      "value_input_q8_8": false,
+      "unit_spike_features": true,
+      "active_h40_tiles": 12,
+      "logical_output_passes": 2,
+      "words_hex": [
+        "4e4d5232",
+        "000c0302",
+        "00000002",
+        "05bc0800",
+        "0052050c",
+        "05600104",
+        "00a00104",
+        "0068a480",
+        "00062000",
+        "01000087",
+        "00000008",
+        "55534e31"
+      ]
+    },
+    {
+      "layer": 8,
+      "type": "OUTPUT",
+      "input_features": 2048,
+      "output_classes": 11,
+      "words_hex": [
+        "4e4d5232",
+        "000c0202",
+        "00000004",
+        "05bc0800",
+        "0052050c",
+        "00000000",
+        "00000000",
+        "008ca480",
+        "00000000",
+        "00000000",
+        "00000100",
+        "55534e31"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "route": 0,
+      "source_layer": 0,
+      "destination_layer": 1,
+      "words_hex": [
+        "00000201",
+        "00000000"
+      ]
+    },
+    {
+      "route": 1,
+      "source_layer": 1,
+      "destination_layer": 2,
+      "words_hex": [
+        "00000421",
+        "00000000"
+      ]
+    },
+    {
+      "route": 2,
+      "source_layer": 2,
+      "destination_layer": 3,
+      "words_hex": [
+        "00000641",
+        "00000000"
+      ]
+    },
+    {
+      "route": 3,
+      "source_layer": 3,
+      "destination_layer": 4,
+      "words_hex": [
+        "00000861",
+        "00000000"
+      ]
+    },
+    {
+      "route": 4,
+      "source_layer": 4,
+      "destination_layer": 5,
+      "words_hex": [
+        "00000a81",
+        "00000000"
+      ]
+    },
+    {
+      "route": 5,
+      "source_layer": 5,
+      "destination_layer": 6,
+      "words_hex": [
+        "00000ca1",
+        "00000000"
+      ]
+    },
+    {
+      "route": 6,
+      "source_layer": 6,
+      "destination_layer": 7,
+      "words_hex": [
+        "00000ec1",
+        "00000000"
+      ]
+    },
+    {
+      "route": 7,
+      "source_layer": 7,
+      "destination_layer": 8,
+      "words_hex": [
+        "000010e1",
+        "00000000"
+      ]
+    }
+  ],
+  "source": {
+    "path": "results/scnn_reference/vgg9_hardware_layer_contract.json",
+    "sha256": "e669255f942bd02682ae4a26dbf7dbd3c4a1297a68f8ca67922d4d78fd8cca13"
+  },
+  "claim_boundary": "Deterministic control/profile package only. It does not prove complete VGG-9 execution, prediction, cycles, synthesis, route, post-route timing or board behavior."
+}

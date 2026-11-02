@@ -1,0 +1,14 @@
+Section,Metric,Unit,Unified,FC-only,SRNN-only,SCNN-only,IndependentSum,Avoided,Saving,ReuseFactor,MaxFixedShell,UnifiedPremiumVsMaxFixedShell,Status
+Resource,Slice LUT,count,180969,139076,145194,112337,396607,215638,0.543707,2.191574,145194,0.246394,NA
+Resource,Registers,count,80160,57399,60725,62373,180497,100337,0.555893,2.251709,62373,0.285171,NA
+Resource,RAMB36,count,511,426,472,446,1344,833,0.619792,2.630137,472,0.082627,NA
+Resource,RAMB18,count,7,2,5,2,9,2,0.222222,1.285714,5,0.400000,NA
+Resource,BRAM36eq,count,514.5,427,474.5,447,1348.5,834,0.618465,2.620991,474.5,0.084299,NA
+Resource,DSP,count,1196,1126,1162,1134,3422,2226,0.650497,2.861204,1162,0.029260,NA
+Timing,WNS,ns,0.006,4.123,3.98,0.738,NA,NA,NA,NA,NA,NA,NA
+Timing,WHS,ns,0.133,0.134,0.145,0.133,NA,NA,NA,NA,NA,NA,NA
+Comparability,Stage,text,post-synthesis,post-synthesis,post-synthesis,post-synthesis,NA,NA,NA,NA,NA,NA,PASS
+Comparability,Top,text,unified_h40_final_composition_top_v1,unified_h40_final_composition_top_v1,unified_h40_final_composition_top_v1,unified_h40_final_composition_top_v1,NA,NA,NA,NA,NA,NA,PASS
+Comparability,Part,text,xc7vx690tffg1761-3,xc7vx690tffg1761-3,xc7vx690tffg1761-3,xc7vx690tffg1761-3,NA,NA,NA,NA,NA,NA,PASS
+Comparability,Period,ns,15,15,15,15,NA,NA,NA,NA,NA,NA,PASS
+Comparability,Overall,text,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,PASS

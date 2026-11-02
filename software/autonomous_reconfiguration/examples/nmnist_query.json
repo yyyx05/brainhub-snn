@@ -1,0 +1,19 @@
+{
+  "dataset_id": "nmnist_query_1",
+  "fingerprint": {
+    "event_count_log_mean": 7.2224627941876545,
+    "event_count_cv": 0.3823630153452276,
+    "duration_mean": 0.09955284666666667,
+    "duration_cv": 0.006112757045428213,
+    "temporal_entropy": 0.8897166166105118,
+    "channel_entropy": 0.8744325326271131,
+    "temporal_occupancy": 0.9996666666666667,
+    "channel_occupancy": 0.8540686274509804,
+    "feature_rank": 3,
+    "ordered_channel_count": 2312,
+    "spatial_axes": 2,
+    "spatial_shape": [34, 34],
+    "polarity_channels": 2,
+    "class_count": 10
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "provenance": "Curated from teammate dataset fingerprint package; only current hardware-qualified profiles retained.",
+  "prototypes": [
+    {
+      "profile_id": "fc_nmnist_h160",
+      "fingerprint": {
+        "event_count_log_mean": 7.25224025972534,
+        "event_count_cv": 0.3701557546895646,
+        "duration_mean": 0.09956758,
+        "duration_cv": 0.0060550526129845295,
+        "temporal_entropy": 0.8885052885868775,
+        "channel_entropy": 0.8750516264977093,
+        "temporal_occupancy": 0.9991666666666666,
+        "channel_occupancy": 0.8554901960784314,
+        "feature_rank": 3,
+        "ordered_channel_count": 2312,
+        "spatial_axes": 2,
+        "spatial_shape": [34, 34],
+        "polarity_channels": 2,
+        "class_count": 10
+      }
+    },
+    {
+      "profile_id": "srnn_shd_h450_m2",
+      "fingerprint": {
+        "event_count_log_mean": 8.972670226542201,
+        "event_count_cv": 0.2821901902044396,
+        "duration_mean": 0.69724609375,
+        "duration_cv": 0.17663731146181869,
+        "temporal_entropy": 0.5892068776178347,
+        "channel_entropy": 0.8551269941751798,
+        "temporal_occupancy": 0.5235,
+        "channel_occupancy": 0.9992857142857143,
+        "feature_rank": 1,
+        "ordered_channel_count": 700,
+        "spatial_axes": 0,
+        "polarity_channels": 1,
+        "class_count": 20
+      }
+    },
+    {
+      "profile_id": "scnn_dvsgesture_vgg9",
+      "fingerprint": {
+        "event_count_log_mean": 8.515421688620371,
+        "event_count_cv": 0.43944924361904,
+        "duration_mean": 1.5,
+        "duration_cv": 0.0,
+        "temporal_entropy": 0.9861958115936287,
+        "channel_entropy": 0.9982001467048756,
+        "temporal_occupancy": 1.0,
+        "channel_occupancy": 1.0,
+        "feature_rank": 3,
+        "ordered_channel_count": 2048,
+        "spatial_axes": 2,
+        "spatial_shape": [32, 32],
+        "polarity_channels": 2,
+        "class_count": 11
+      }
+    }
+  ]
+}

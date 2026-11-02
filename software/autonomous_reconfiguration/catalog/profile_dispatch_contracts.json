@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "scope": "fixed_qualified_profiles_only",
+  "rtl_top": "unified_h40_final_composition_top_v1",
+  "contracts": [
+    {
+      "contract_id": "fc_native_stream_v1",
+      "profile_id": "fc_nmnist_h160",
+      "profile_code": "0x01",
+      "request_family": "fc_layer_and_group_stream",
+      "interface_groups": [
+        {
+          "name": "profile_and_request",
+          "drive": ["i_system_profile_id", "i_request_valid", "i_learning_enable"],
+          "observe": ["o_request_ready", "o_done", "o_versions_aligned"]
+        },
+        {
+          "name": "fc_w0_refill",
+          "drive": ["i_fc_w0_refill_valid", "i_fc_w0_version"],
+          "observe": ["o_fc_w0_refill_ready", "o_fc_w0_refill_done", "o_fc_w0_published_version"]
+        },
+        {
+          "name": "fc_layer_and_groups",
+          "drive": ["i_fc_srnn_layer_valid", "i_fc_srnn_group_valid"],
+          "observe": ["o_fc_srnn_layer_ready", "o_fc_srnn_group_ready", "o_fc_srnn_layer_done"]
+        },
+        {
+          "name": "fc_w2_learning",
+          "drive": ["i_learning_fc_cfg_valid", "i_learning_fc_release"],
+          "observe": ["o_learning_fc_cfg_ready", "o_learning_fc_window_commit_valid", "o_learning_fc_error"]
+        }
+      ]
+    },
+    {
+      "contract_id": "srnn_native_stream_v1",
+      "profile_id": "srnn_shd_h450_m2",
+      "profile_code": "0x10",
+      "request_family": "srnn_backbone_group_stream_and_m2_phase",
+      "interface_groups": [
+        {
+          "name": "profile_and_request",
+          "drive": ["i_system_profile_id", "i_request_valid", "i_learning_enable"],
+          "observe": ["o_request_ready", "o_done", "o_versions_aligned"]
+        },
+        {
+          "name": "srnn_backbone_refill",
+          "drive": ["i_srnn_backbone_refill_valid", "i_srnn_backbone_version"],
+          "observe": ["o_srnn_backbone_refill_ready", "o_srnn_backbone_refill_done", "o_srnn_backbone_published_version"]
+        },
+        {
+          "name": "srnn_backbone_execution",
+          "drive": ["i_fc_srnn_layer_valid", "i_srnn_group_streamer_start_valid"],
+          "observe": ["o_fc_srnn_layer_ready", "o_srnn_group_streamer_start_ready", "o_srnn_group_streamer_done"]
+        },
+        {
+          "name": "srnn_m2_phase_and_learning",
+          "drive": ["i_srnn_phase_start_valid", "i_learning_srnn_cfg_valid"],
+          "observe": ["o_srnn_phase_start_ready", "o_learning_srnn_cfg_ready", "o_learning_srnn_learning_commit", "o_learning_srnn_error"]
+        }
+      ]
+    },
+    {
+      "contract_id": "scnn_graph_frame_service_v1",
+      "profile_id": "scnn_dvsgesture_vgg9",
+      "profile_code": "0x20",
+      "request_family": "scnn_graph_descriptor_and_frame_service",
+      "interface_groups": [
+        {
+          "name": "profile_and_forward",
+          "drive": ["i_system_profile_id", "i_profile_id", "i_forward_start_valid"],
+          "observe": ["o_forward_start_ready", "o_forward_active", "o_versions_aligned"]
+        },
+        {
+          "name": "graph_descriptors",
+          "drive": ["i_graph_descriptor_valid", "i_graph_descriptor_last"],
+          "observe": ["o_graph_descriptor_ready", "o_graph_descriptor_done", "o_graph_frame_version"]
+        },
+        {
+          "name": "feature_and_state_services",
+          "drive": ["i_state_service_ready", "i_feature_request_ready"],
+          "observe": ["o_state_service_valid", "o_feature_request_valid", "o_feature_update_valid"]
+        },
+        {
+          "name": "classifier_learning_publication",
+          "drive": ["i_topology_learning_enable"],
+          "observe": ["o_commit_pulse", "o_parameter_version", "o_commit_pending"]
+        }
+      ]
+    }
+  ],
+  "boundary": "Anchor-signal dispatch map for the fixed qualified profiles. It is not an MMIO register map and does not expose arbitrary depth, scale, timestep, precision, or activation-unit selection."
+}

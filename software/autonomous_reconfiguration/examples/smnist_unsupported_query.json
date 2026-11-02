@@ -1,0 +1,18 @@
+{
+  "dataset_id": "smnist_query_4",
+  "fingerprint": {
+    "event_count_log_mean": 8.4830272573503,
+    "event_count_cv": 0.1866593076348677,
+    "duration_mean": 1.0652666666666666,
+    "duration_cv": 0.04613568704184208,
+    "temporal_entropy": 0.9861897009806645,
+    "channel_entropy": 0.9914181711627521,
+    "temporal_occupancy": 0.9998333333333334,
+    "channel_occupancy": 0.9785858585858586,
+    "feature_rank": 1,
+    "ordered_channel_count": 99,
+    "spatial_axes": 0,
+    "polarity_channels": 1,
+    "class_count": 10
+  }
+}

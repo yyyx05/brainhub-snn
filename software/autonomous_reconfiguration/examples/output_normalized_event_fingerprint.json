@@ -1,0 +1,19 @@
+{
+  "dataset_id": "normalized_event_smoke",
+  "fingerprint": {
+    "event_count_log_mean": 1.2424533248940002,
+    "event_count_cv": 0.2,
+    "duration_mean": 0.625,
+    "duration_cv": 0.2,
+    "temporal_entropy": 0.646240625180289,
+    "channel_entropy": 0.646240625180289,
+    "temporal_occupancy": 0.625,
+    "channel_occupancy": 0.625,
+    "sample_count": 2,
+    "feature_rank": 1,
+    "ordered_channel_count": 4,
+    "spatial_axes": 0,
+    "polarity_channels": 1,
+    "class_count": 2
+  }
+}

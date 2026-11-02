@@ -1,0 +1,18 @@
+{
+  "dataset_id": "shd_query_2",
+  "fingerprint": {
+    "event_count_log_mean": 8.968550406736046,
+    "event_count_cv": 0.2822272137790315,
+    "duration_mean": 0.7009781901041666,
+    "duration_cv": 0.18503472875168897,
+    "temporal_entropy": 0.5881643554131171,
+    "channel_entropy": 0.8544180728434071,
+    "temporal_occupancy": 0.5261666666666667,
+    "channel_occupancy": 0.9985714285714286,
+    "feature_rank": 1,
+    "ordered_channel_count": 700,
+    "spatial_axes": 0,
+    "polarity_channels": 1,
+    "class_count": 20
+  }
+}

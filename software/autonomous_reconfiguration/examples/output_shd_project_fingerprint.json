@@ -1,0 +1,21 @@
+{
+  "dataset_id": "SHD-project-slice",
+  "source_adapter": "shd-h5",
+  "source_path": ".\\software\\autonomous_reconfiguration\\..\\..\\imports\\srnn\\dataset_cache\\SHD\\shd_train.h5",
+  "fingerprint": {
+    "event_count_log_mean": 8.874495790288446,
+    "event_count_cv": 0.3677296121620777,
+    "duration_mean": 0.7204132080078125,
+    "duration_cv": 0.16674758801054845,
+    "temporal_entropy": 0.6030060618781238,
+    "channel_entropy": 0.8593875218527642,
+    "temporal_occupancy": 0.540625,
+    "channel_occupancy": 0.9986607142857142,
+    "sample_count": 32,
+    "feature_rank": 1,
+    "ordered_channel_count": 700,
+    "spatial_axes": 0,
+    "polarity_channels": 1,
+    "class_count": 20
+  }
+}

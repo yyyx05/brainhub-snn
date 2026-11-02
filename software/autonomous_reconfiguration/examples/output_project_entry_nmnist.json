@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0",
+  "mode": "dry_run_contract_trace",
+  "input_source": {
+    "adapter": "fingerprint-json",
+    "path": ".\\software\\autonomous_reconfiguration\\examples\\nmnist_query.json"
+  },
+  "decision": {
+    "schema_version": "1.0",
+    "status": "hardware_profile_selected",
+    "selected_profile": {
+      "profile_id": "fc_nmnist_h160",
+      "profile_code": "0x01",
+      "dispatch_contract_id": "fc_native_stream_v1",
+      "topology": "FC",
+      "reference_workload": "N-MNIST 2312->160->10",
+      "input_contract": {
+        "feature_rank": 3,
+        "ordered_channel_count": 2312,
+        "spatial_axes": 2,
+        "spatial_shape": [
+          34,
+          34
+        ],
+        "polarity_channels": 2,
+        "class_count": 10
+      },
+      "numeric_contract": {
+        "input_weight_w0": "INT5",
+        "output_weight_w2": "INT8",
+        "learning_trace": "UQ6.10"
+      },
+      "deployment_assets": [
+        {
+          "role": "resident_weight_bundle",
+          "path": "data/weights/p3a_nmnist_h160_k8_input2312/manifest.json"
+        },
+        {
+          "role": "versioned_w2_bundle",
+          "path": "data/weights/p3a_nmnist_h160_k8_input2312/versioned_w2_packed_manifest.json"
+        }
+      ],
+      "learning_scope": {
+        "online_supported": true,
+        "trainable_parameters": "W2 only",
+        "frozen_parameters": "W0 and hidden feature extractor"
+      }
+    },
+    "ranking": {
+      "compatible_profiles": [
+        {
+          "profile_id": "fc_nmnist_h160",
+          "profile_code": "0x01",
+          "dispatch_contract_id": "fc_native_stream_v1",
+          "distance": 0.02227667,
+          "mismatches": []
+        }
+      ],
+      "selected_distance": 0.02227667,
+      "distance_margin_to_next_compatible": null,
+      "note": "Normalized prototype distance is used only after hard hardware compatibility filtering; it is not a probability."
+    },
+    "learning_decision": {
+      "enabled": false,
+      "source": "explicit_request",
+      "policy_status": "not_applicable"
+    },
+    "hardware_plan": {
+      "control_transport": "native_profile_descriptor_handshake",
+      "native_interface_contract": "catalog/native_control_interface.json",
+      "profile_dispatch_contract": "fc_native_stream_v1",
+      "mmio_address_map_status": "not_assigned",
+      "profile_opcode": "0x01",
+      "learning_enable": false,
+      "steps": [
+        "stop_accepting_new_work",
+        "wait_for_owner_drain_and_quiescent",
+        "load_qualified_weights_state_and_descriptors_if_needed",
+        "request_profile_opcode_and_learning_enable",
+        "wait_for_profile_alignment_and_version_visibility",
+        "submit_runtime_descriptors",
+        "continue_inference_without_learning_commit"
+      ]
+    },
+    "claim_boundary": "Autonomous selection is limited to the registered hardware profile library. Adding a topology, depth, precision, or neuron scale requires offline profile qualification and may require RTL changes."
+  },
+  "execution": {
+    "status": "execution_sequence_completed",
+    "profile_id": "fc_nmnist_h160",
+    "profile_opcode": "0x01",
+    "dispatch_contract_id": "fc_native_stream_v1",
+    "learning_enable": false,
+    "trace": [
+      "stop_accepting_new_work",
+      "wait_for_owner_drain_and_quiescent",
+      "load_qualified_weights_state_and_descriptors_if_needed",
+      "request_profile_opcode_and_learning_enable",
+      "wait_for_profile_alignment_and_version_visibility",
+      "submit_runtime_descriptors",
+      "continue_inference_without_learning_commit",
+      "resume_accepting_work"
+    ],
+    "boundary": "Host sequence only. A concrete transport must still prove signal/register handshakes, timeout behavior, and error propagation."
+  },
+  "dry_run_events": [
+    {
+      "operation": "stop_accepting_new_work"
+    },
+    {
+      "operation": "wait_for_owner_drain_and_quiescent"
+    },
+    {
+      "operation": "load_deployment_assets",
+      "assets": [
+        {
+          "role": "resident_weight_bundle",
+          "path": "data/weights/p3a_nmnist_h160_k8_input2312/manifest.json"
+        },
+        {
+          "role": "versioned_w2_bundle",
+          "path": "data/weights/p3a_nmnist_h160_k8_input2312/versioned_w2_packed_manifest.json"
+        }
+      ]
+    },
+    {
+      "operation": "request_profile",
+      "profile_opcode": "0x01",
+      "learning_enable": false
+    },
+    {
+      "operation": "wait_for_profile_alignment_and_version_visibility"
+    },
+    {
+      "operation": "submit_runtime_descriptors",
+      "profile_id": "fc_nmnist_h160",
+      "dispatch_contract_id": "fc_native_stream_v1",
+      "request_family": "fc_layer_and_group_stream",
+      "interface_groups": [
+        {
+          "name": "profile_and_request",
+          "drive": [
+            "i_system_profile_id",
+            "i_request_valid",
+            "i_learning_enable"
+          ],
+          "observe": [
+            "o_request_ready",
+            "o_done",
+            "o_versions_aligned"
+          ]
+        },
+        {
+          "name": "fc_w0_refill",
+          "drive": [
+            "i_fc_w0_refill_valid",
+            "i_fc_w0_version"
+          ],
+          "observe": [
+            "o_fc_w0_refill_ready",
+            "o_fc_w0_refill_done",
+            "o_fc_w0_published_version"
+          ]
+        },
+        {
+          "name": "fc_layer_and_groups",
+          "drive": [
+            "i_fc_srnn_layer_valid",
+            "i_fc_srnn_group_valid"
+          ],
+          "observe": [
+            "o_fc_srnn_layer_ready",
+            "o_fc_srnn_group_ready",
+            "o_fc_srnn_layer_done"
+          ]
+        },
+        {
+          "name": "fc_w2_learning",
+          "drive": [
+            "i_learning_fc_cfg_valid",
+            "i_learning_fc_release"
+          ],
+          "observe": [
+            "o_learning_fc_cfg_ready",
+            "o_learning_fc_window_commit_valid",
+            "o_learning_fc_error"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "continue_without_learning_commit"
+    },
+    {
+      "operation": "resume_accepting_work"
+    }
+  ],
+  "boundary": "Project-level fixed-profile integration only. No MMIO, RTL simulation, board action, or arbitrary depth/scale/timestep/precision/activation-unit selection is performed."
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "status": "requires_accelerator_extension",
+  "selected_profile": null,
+  "hardware_plan": null,
+  "nearest_architecture_advisory": {
+    "profile_id": "srnn_shd_h450_m2",
+    "profile_code": "0x10",
+    "dispatch_contract_id": "srnn_native_stream_v1",
+    "distance": 0.62825511,
+    "mismatches": [
+      {
+        "field": "ordered_channel_count",
+        "query": 99,
+        "required": 700
+      },
+      {
+        "field": "class_count",
+        "query": 10,
+        "required": 20
+      }
+    ]
+  },
+  "compatibility_rejections": [
+    {
+      "profile_id": "fc_nmnist_h160",
+      "profile_code": "0x01",
+      "dispatch_contract_id": "fc_native_stream_v1",
+      "distance": 0.81959747,
+      "mismatches": [
+        {
+          "field": "feature_rank",
+          "query": 1,
+          "required": 3
+        },
+        {
+          "field": "ordered_channel_count",
+          "query": 99,
+          "required": 2312
+        },
+        {
+          "field": "spatial_axes",
+          "query": 0,
+          "required": 2
+        },
+        {
+          "field": "polarity_channels",
+          "query": 1,
+          "required": 2
+        },
+        {
+          "field": "spatial_shape",
+          "query": [],
+          "required": [
+            34,
+            34
+          ]
+        }
+      ]
+    },
+    {
+      "profile_id": "srnn_shd_h450_m2",
+      "profile_code": "0x10",
+      "dispatch_contract_id": "srnn_native_stream_v1",
+      "distance": 0.62825511,
+      "mismatches": [
+        {
+          "field": "ordered_channel_count",
+          "query": 99,
+          "required": 700
+        },
+        {
+          "field": "class_count",
+          "query": 10,
+          "required": 20
+        }
+      ]
+    },
+    {
+      "profile_id": "scnn_dvsgesture_vgg9",
+      "profile_code": "0x20",
+      "dispatch_contract_id": "scnn_graph_frame_service_v1",
+      "distance": 0.7465273,
+      "mismatches": [
+        {
+          "field": "feature_rank",
+          "query": 1,
+          "required": 3
+        },
+        {
+          "field": "ordered_channel_count",
+          "query": 99,
+          "required": 2048
+        },
+        {
+          "field": "spatial_axes",
+          "query": 0,
+          "required": 2
+        },
+        {
+          "field": "polarity_channels",
+          "query": 1,
+          "required": 2
+        },
+        {
+          "field": "class_count",
+          "query": 10,
+          "required": 11
+        },
+        {
+          "field": "spatial_shape",
+          "query": [],
+          "required": [
+            32,
+            32
+          ]
+        }
+      ]
+    }
+  ],
+  "ranking_note": "Distance is an engineering similarity score, not a probability or model-accuracy confidence. No hardware opcode was emitted."
+}

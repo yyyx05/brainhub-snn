@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "rtl_top": "unified_h40_final_composition_top_v1",
+  "transport_status": "native_signals_present_mmio_wrapper_not_assigned",
+  "operations": [
+    {
+      "operation": "select_profile",
+      "drive": ["i_system_profile_id", "i_profile_id", "i_system_profile_aligned"],
+      "observe": ["o_versions_aligned", "o_model_version", "o_adapt_version"]
+    },
+    {
+      "operation": "control_learning",
+      "drive": ["i_system_learning_enable", "i_learning_enable", "i_topology_learning_enable"],
+      "observe": ["o_learning_start_fire", "o_commit_pending"]
+    },
+    {
+      "operation": "coordinate_ownership_and_drain",
+      "drive": ["i_system_parameter_owner", "i_parameter_owner"],
+      "observe": ["o_array_active_owner", "o_quiescent", "o_backend_quiescent", "o_cache_refill_quiescent", "o_owner_encoding_error"]
+    },
+    {
+      "operation": "submit_scnn_graph_descriptors",
+      "drive": ["i_graph_descriptor_valid", "i_graph_descriptor_last"],
+      "observe": ["o_graph_descriptor_ready", "o_graph_descriptor_done", "o_graph_frame_version"]
+    },
+    {
+      "operation": "observe_atomic_publication",
+      "drive": [],
+      "observe": ["o_commit_pulse", "o_commit_code_dirty", "o_commit_optimizer_dirty", "o_parameter_version", "o_versions_aligned"]
+    }
+  ],
+  "host_wrapper_gap": {
+    "required": true,
+    "items": [
+      "assign AXI-Lite or equivalent register addresses",
+      "translate register writes into native handshakes",
+      "provide timeout and error recovery",
+      "connect weight and state DMA or memory service",
+      "raise completion and fault interrupts"
+    ]
+  }
+}

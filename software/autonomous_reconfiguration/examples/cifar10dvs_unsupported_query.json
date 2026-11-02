@@ -1,0 +1,19 @@
+{
+  "dataset_id": "cifar10dvs_query_5",
+  "fingerprint": {
+    "event_count_log_mean": 12.149031805496067,
+    "event_count_cv": 0.2600223924722009,
+    "duration_mean": 1.2930097297827403,
+    "duration_cv": 0.030882011481958155,
+    "temporal_entropy": 0.9883584851091437,
+    "channel_entropy": 0.9787474152167529,
+    "temporal_occupancy": 1.0,
+    "channel_occupancy": 1.0,
+    "feature_rank": 3,
+    "ordered_channel_count": 2048,
+    "spatial_axes": 2,
+    "spatial_shape": [32, 32],
+    "polarity_channels": 2,
+    "class_count": 10
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "scope": "qualified_profiles_for_current_unified_snn_rtl",
+  "profiles": [
+    {
+      "profile_id": "fc_nmnist_h160",
+      "profile_code": "0x01",
+      "dispatch_contract_id": "fc_native_stream_v1",
+      "hardware_selectable": true,
+      "topology": "FC",
+      "reference_workload": "N-MNIST 2312->160->10",
+      "input_contract": {
+        "feature_rank": 3,
+        "ordered_channel_count": 2312,
+        "spatial_axes": 2,
+        "spatial_shape": [34, 34],
+        "polarity_channels": 2,
+        "class_count": 10
+      },
+      "numeric_contract": {
+        "input_weight_w0": "INT5",
+        "output_weight_w2": "INT8",
+        "learning_trace": "UQ6.10"
+      },
+      "deployment_assets": [
+        {
+          "role": "resident_weight_bundle",
+          "path": "data/weights/p3a_nmnist_h160_k8_input2312/manifest.json"
+        },
+        {
+          "role": "versioned_w2_bundle",
+          "path": "data/weights/p3a_nmnist_h160_k8_input2312/versioned_w2_packed_manifest.json"
+        }
+      ],
+      "learning_scope": {
+        "online_supported": true,
+        "trainable_parameters": "W2 only",
+        "frozen_parameters": "W0 and hidden feature extractor"
+      }
+    },
+    {
+      "profile_id": "srnn_shd_h450_m2",
+      "profile_code": "0x10",
+      "dispatch_contract_id": "srnn_native_stream_v1",
+      "hardware_selectable": true,
+      "topology": "SRNN",
+      "reference_workload": "SHD 700->450 recurrent backbone + 450->256->20 M2",
+      "input_contract": {
+        "feature_rank": 1,
+        "ordered_channel_count": 700,
+        "spatial_axes": 0,
+        "polarity_channels": 1,
+        "class_count": 20
+      },
+      "numeric_contract": {
+        "recurrent_forward": "INT8/ACC32",
+        "m2_code_and_residual": "Q2.14"
+      },
+      "deployment_assets": [
+        {
+          "role": "frozen_backbone_input_weights",
+          "path": "models/srnn_shd_700_450_20_int8_layer_scaled_v2/w0_int8.mem"
+        },
+        {
+          "role": "frozen_backbone_recurrent_weights",
+          "path": "models/srnn_shd_700_450_20_int8_layer_scaled_v2/r_int8.mem"
+        },
+        {
+          "role": "m2_hidden_weights_q14",
+          "path": "tb/data/srnn_m2_v28_wh1_initial_q14.mem"
+        },
+        {
+          "role": "m2_output_weights_q14",
+          "path": "tb/data/srnn_m2_v28_wout_initial_q14.mem"
+        }
+      ],
+      "learning_scope": {
+        "online_supported": true,
+        "trainable_parameters": "M2 Wout only",
+        "frozen_parameters": "700->450 recurrent backbone and M2 hidden transform"
+      }
+    },
+    {
+      "profile_id": "scnn_dvsgesture_vgg9",
+      "profile_code": "0x20",
+      "dispatch_contract_id": "scnn_graph_frame_service_v1",
+      "hardware_selectable": true,
+      "topology": "SCNN",
+      "reference_workload": "DVS-Gesture VGG9 SNN, eight convolution layers, 2048->11 classifier",
+      "input_contract": {
+        "feature_rank": 3,
+        "ordered_channel_count": 2048,
+        "spatial_axes": 2,
+        "spatial_shape": [32, 32],
+        "polarity_channels": 2,
+        "class_count": 11
+      },
+      "numeric_contract": {
+        "pooled_observation": "Q8.8",
+        "classifier_code_and_residual": "Q0.15"
+      },
+      "deployment_assets": [
+        {
+          "role": "quantized_weight_manifest",
+          "path": "models/scnn_dvsgesture_vgg9_q0_15/manifest.json"
+        },
+        {
+          "role": "inference_memory_image",
+          "path": "models/scnn_dvsgesture_vgg9_q0_15/inference_model_q16x4_le.bin"
+        },
+        {
+          "role": "runtime_memory_layout",
+          "path": "models/scnn_dvsgesture_vgg9_q8_8/inference_memory_manifest.json"
+        }
+      ],
+      "learning_scope": {
+        "online_supported": true,
+        "trainable_parameters": "classifier only",
+        "frozen_parameters": "Conv1..Conv8 feature extractor"
+      }
+    }
+  ]
+}

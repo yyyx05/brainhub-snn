@@ -1,0 +1,244 @@
+{
+  "schema_version": "1.0",
+  "mode": "dry_run_contract_trace",
+  "input_source": {
+    "adapter": "shd-h5",
+    "path": ".\\imports\\srnn\\dataset_cache\\SHD\\shd_train.h5",
+    "sample_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+  },
+  "decision": {
+    "schema_version": "1.0",
+    "status": "hardware_profile_selected",
+    "selected_profile": {
+      "profile_id": "srnn_shd_h450_m2",
+      "profile_code": "0x10",
+      "dispatch_contract_id": "srnn_native_stream_v1",
+      "topology": "SRNN",
+      "reference_workload": "SHD 700->450 recurrent backbone + 450->256->20 M2",
+      "input_contract": {
+        "feature_rank": 1,
+        "ordered_channel_count": 700,
+        "spatial_axes": 0,
+        "polarity_channels": 1,
+        "class_count": 20
+      },
+      "numeric_contract": {
+        "recurrent_forward": "INT8/ACC32",
+        "m2_code_and_residual": "Q2.14"
+      },
+      "deployment_assets": [
+        {
+          "role": "frozen_backbone_input_weights",
+          "path": "models/srnn_shd_700_450_20_int8_layer_scaled_v2/w0_int8.mem"
+        },
+        {
+          "role": "frozen_backbone_recurrent_weights",
+          "path": "models/srnn_shd_700_450_20_int8_layer_scaled_v2/r_int8.mem"
+        },
+        {
+          "role": "m2_hidden_weights_q14",
+          "path": "tb/data/srnn_m2_v28_wh1_initial_q14.mem"
+        },
+        {
+          "role": "m2_output_weights_q14",
+          "path": "tb/data/srnn_m2_v28_wout_initial_q14.mem"
+        }
+      ],
+      "learning_scope": {
+        "online_supported": true,
+        "trainable_parameters": "M2 Wout only",
+        "frozen_parameters": "700->450 recurrent backbone and M2 hidden transform"
+      }
+    },
+    "ranking": {
+      "compatible_profiles": [
+        {
+          "profile_id": "srnn_shd_h450_m2",
+          "profile_code": "0x10",
+          "dispatch_contract_id": "srnn_native_stream_v1",
+          "distance": 0.15340752,
+          "mismatches": []
+        }
+      ],
+      "selected_distance": 0.15340752,
+      "distance_margin_to_next_compatible": null,
+      "note": "Normalized prototype distance is used only after hard hardware compatibility filtering; it is not a probability."
+    },
+    "learning_decision": {
+      "enabled": false,
+      "source": "explicit_request",
+      "policy_status": "not_applicable"
+    },
+    "hardware_plan": {
+      "control_transport": "native_profile_descriptor_handshake",
+      "native_interface_contract": "catalog/native_control_interface.json",
+      "profile_dispatch_contract": "srnn_native_stream_v1",
+      "mmio_address_map_status": "not_assigned",
+      "profile_opcode": "0x10",
+      "learning_enable": false,
+      "steps": [
+        "stop_accepting_new_work",
+        "wait_for_owner_drain_and_quiescent",
+        "load_qualified_weights_state_and_descriptors_if_needed",
+        "request_profile_opcode_and_learning_enable",
+        "wait_for_profile_alignment_and_version_visibility",
+        "submit_runtime_descriptors",
+        "continue_inference_without_learning_commit"
+      ]
+    },
+    "claim_boundary": "Autonomous selection is limited to the registered hardware profile library. Adding a topology, depth, precision, or neuron scale requires offline profile qualification and may require RTL changes."
+  },
+  "execution": {
+    "status": "execution_sequence_completed",
+    "profile_id": "srnn_shd_h450_m2",
+    "profile_opcode": "0x10",
+    "dispatch_contract_id": "srnn_native_stream_v1",
+    "learning_enable": false,
+    "trace": [
+      "stop_accepting_new_work",
+      "wait_for_owner_drain_and_quiescent",
+      "load_qualified_weights_state_and_descriptors_if_needed",
+      "request_profile_opcode_and_learning_enable",
+      "wait_for_profile_alignment_and_version_visibility",
+      "submit_runtime_descriptors",
+      "continue_inference_without_learning_commit",
+      "resume_accepting_work"
+    ],
+    "boundary": "Host sequence only. A concrete transport must still prove signal/register handshakes, timeout behavior, and error propagation."
+  },
+  "dry_run_events": [
+    {
+      "operation": "stop_accepting_new_work"
+    },
+    {
+      "operation": "wait_for_owner_drain_and_quiescent"
+    },
+    {
+      "operation": "load_deployment_assets",
+      "assets": [
+        {
+          "role": "frozen_backbone_input_weights",
+          "path": "models/srnn_shd_700_450_20_int8_layer_scaled_v2/w0_int8.mem"
+        },
+        {
+          "role": "frozen_backbone_recurrent_weights",
+          "path": "models/srnn_shd_700_450_20_int8_layer_scaled_v2/r_int8.mem"
+        },
+        {
+          "role": "m2_hidden_weights_q14",
+          "path": "tb/data/srnn_m2_v28_wh1_initial_q14.mem"
+        },
+        {
+          "role": "m2_output_weights_q14",
+          "path": "tb/data/srnn_m2_v28_wout_initial_q14.mem"
+        }
+      ]
+    },
+    {
+      "operation": "request_profile",
+      "profile_opcode": "0x10",
+      "learning_enable": false
+    },
+    {
+      "operation": "wait_for_profile_alignment_and_version_visibility"
+    },
+    {
+      "operation": "submit_runtime_descriptors",
+      "profile_id": "srnn_shd_h450_m2",
+      "dispatch_contract_id": "srnn_native_stream_v1",
+      "request_family": "srnn_backbone_group_stream_and_m2_phase",
+      "interface_groups": [
+        {
+          "name": "profile_and_request",
+          "drive": [
+            "i_system_profile_id",
+            "i_request_valid",
+            "i_learning_enable"
+          ],
+          "observe": [
+            "o_request_ready",
+            "o_done",
+            "o_versions_aligned"
+          ]
+        },
+        {
+          "name": "srnn_backbone_refill",
+          "drive": [
+            "i_srnn_backbone_refill_valid",
+            "i_srnn_backbone_version"
+          ],
+          "observe": [
+            "o_srnn_backbone_refill_ready",
+            "o_srnn_backbone_refill_done",
+            "o_srnn_backbone_published_version"
+          ]
+        },
+        {
+          "name": "srnn_backbone_execution",
+          "drive": [
+            "i_fc_srnn_layer_valid",
+            "i_srnn_group_streamer_start_valid"
+          ],
+          "observe": [
+            "o_fc_srnn_layer_ready",
+            "o_srnn_group_streamer_start_ready",
+            "o_srnn_group_streamer_done"
+          ]
+        },
+        {
+          "name": "srnn_m2_phase_and_learning",
+          "drive": [
+            "i_srnn_phase_start_valid",
+            "i_learning_srnn_cfg_valid"
+          ],
+          "observe": [
+            "o_srnn_phase_start_ready",
+            "o_learning_srnn_cfg_ready",
+            "o_learning_srnn_learning_commit",
+            "o_learning_srnn_error"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "continue_without_learning_commit"
+    },
+    {
+      "operation": "resume_accepting_work"
+    }
+  ],
+  "boundary": "Project-level fixed-profile integration only. No MMIO, RTL simulation, board action, or arbitrary depth/scale/timestep/precision/activation-unit selection is performed."
+}

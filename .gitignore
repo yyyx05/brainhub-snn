@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+build/
+obj_dir/
+server_results/
+*.dcp
+*.vcd
+*.fsdb
+/models/
+/data/
+/fixtures/
+/imports/
+/memory/
+/tb/data/
