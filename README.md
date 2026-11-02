@@ -14,9 +14,9 @@
 
 ## 先看演示
 
-下载仓库后，直接用浏览器打开 **[demo/decision_replay.html](demo/decision_replay.html)**，切换任务并观察画像选择、兼容性拒绝和动作记录。页面为自包含离线HTML，没有外部图片或脚本依赖。
+**[打开在线演示 →](https://yyyx05.github.io/brainhub-snn/)**，切换任务并观察画像选择、兼容性拒绝和动作记录。也可下载仓库后，用浏览器打开 **[demo/decision_replay.html](demo/decision_replay.html)**；页面为自包含HTML，没有外部图片或脚本依赖。
 
-该页面回放既有软件决策记录；它不连接FPGA，也不展示实时板级推理。GitHub文件预览会显示HTML源码，需下载后在本地浏览器打开。
+该页面回放既有软件决策记录；它不连接FPGA，也不展示实时板级推理。在线版与离线版使用相同的决策记录与交互。
 
 需要运行真实软件入口时，使用Python 3.11，在仓库根目录执行：
 
