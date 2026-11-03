@@ -1,13 +1,14 @@
-# 授权、来源与依赖
+# 来源与授权
 
-本包用于参赛材料审阅和项目交接。用户已为原创项目代码选择Apache License 2.0，完整条款见根目录`license.txt`，项目归属见`notice.txt`。公开仓库：[yyyx05/brainhub-snn](https://github.com/yyyx05/brainhub-snn)。该许可选择不改变第三方代码、厂商IP、模型与数据集的原有权利。
+BrainHub SNN原创代码采用Apache License 2.0，完整条款见[license.txt](../license.txt)，项目集体归属见[notice.txt](../notice.txt)。公开仓库：[yyyx05/brainhub-snn](https://github.com/yyyx05/brainhub-snn)。
 
-现有作者/第三方版权或许可通知应保留。模型参数、数据集及其派生输入的权利独立于软件代码许可，本轮没有替换其授权。提交后若准备公开GitHub，应先确认这些资产适用的再分发条件，必要时改为下载/生成说明。
+| 内容 | 来源与管理方式 |
+| --- | --- |
+| 共享RTL、画像软件、测试及项目IP封装 | 项目原创贡献，Apache-2.0 |
+| TP方法 | Traces propagation；[方法作者仓库](https://github.com/lollopes/traces_propagation) |
+| 画像统计与匹配 | 协作开发的事件量、持续时间、熵与占用率统计，经项目集成加入结构兼容过滤和固定画像配置 |
+| N-MNIST、SHD、DVS-Gesture及其模型/派生资产 | 按各自来源和授权管理，准备路径见复现说明 |
+| Vivado与XPM | 由AMD工具环境提供 |
+| Verilator、Python、numpy、h5py、PyTorch | 由相应项目提供 |
 
-- TP算法背景：Traces propagation；来源仓库 https://github.com/lollopes/traces_propagation 。此处为方法归属说明，不表示其代码、权重或许可证自动适用于本项目。
-- 画像选择的软件层吸收了协作开发中的事件量、持续时间、时序熵、通道熵与占用率统计，以及画像/权重匹配思想，重构后加入硬兼容过滤与固定硬件画像约束。保留贡献来源事实，省略个人和本机目录信息。
-- N-MNIST、SHD、DVS-Gesture为外部数据集；包中的既有模型与派生测试输入不被视为本轮新采集数据。
-- Vivado和XPM为外部工具/库依赖，未打包厂商工具或许可文件。
-- Verilator、Python、numpy、h5py和PyTorch由使用者从相应项目取得；工具二进制未打包。
-
-本包不包含Windows用户身份、指导教师姓名、所属学校或校园标识。代码中的技术参考归属与必要法律声明不能为匿名展示而删除。
+项目保留适用的版权、许可与技术来源通知。代码许可适用于原创贡献，第三方代码、IP、模型与数据沿用各自授权。
