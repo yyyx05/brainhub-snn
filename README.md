@@ -72,6 +72,6 @@ python -B -m unittest discover -s software/autonomous_reconfiguration/tests -p t
 | 精选实验结果 | [results/README.md](results/README.md) |
 | 复现环境与评价范围 | [docs/reproduction.md](docs/reproduction.md) |
 | 可复用工程技能 | [skill/README.md](skill/README.md) |
-| AI协作记录 | [docs/llm_work_record.md](docs/llm_work_record.md) |
+| AI协作记录 | [docs/llm_engineering_record.md](docs/llm_engineering_record.md) |
 
 公开仓库提供源码、算法ROM和JSON示例；模型与测试资产的准备方法见[公开版资源说明](docs/public_release_scope.md)。原创贡献采用[Apache License 2.0](license.txt)，项目归属见[NOTICE](notice.txt)，算法来源与依赖见[相关说明](docs/rights_and_dependencies.md)。
